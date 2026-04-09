@@ -5405,10 +5405,10 @@ function do_hw_changes() {
 			termux_home_link=" "
 		else
 			# shellcheck disable=SC2034
-			termux_home_link="--termux-home"
+			termux_home_link=" "
 		fi
 		final_user_name="$user_name"
-
+ 
 		distro_app_launch_setup
 		check_and_delete "${current_path}/distro-container-setup"
 	fi

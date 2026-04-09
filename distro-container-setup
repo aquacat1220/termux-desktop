@@ -913,8 +913,8 @@ function proot_distro_debian_based_app_installer() {
 		    #################################################
 		    ############### Handle update part ##############
 		    #################################################
-		    proot-distro login --user "$final_user_name" "$selected_distro" --shared-tmp --termux-home -- env DISPLAY=:"$display_number" sudo apt update
-		    proot-distro login --user "$final_user_name" "$selected_distro" --shared-tmp --termux-home -- env DISPLAY=:"$display_number" sudo apt-file update
+		    proot-distro login --user "$final_user_name" "$selected_distro" --shared-tmp -- env DISPLAY=:"$display_number" sudo apt update
+		    proot-distro login --user "$final_user_name" "$selected_distro" --shared-tmp -- env DISPLAY=:"$display_number" sudo apt-file update
 		}
 	TOP_EOF
 }
@@ -1203,7 +1203,7 @@ function proot_distro_arch_based_app_installer() {
 		    #################################################
 		    ############### Handle update part ##############
 		    #################################################
-		    proot-distro login --user "$final_user_name" "$selected_distro" --shared-tmp --termux-home -- env DISPLAY=:"$display_number" sudo pacman -Su
+		    proot-distro login --user "$final_user_name" "$selected_distro" --shared-tmp -- env DISPLAY=:"$display_number" sudo pacman -Su
 		}
 	TOP_EOF
 }
@@ -1488,7 +1488,7 @@ function proot_distro_fedora_based_app_installer() {
 		    #################################################
 		    ############### Handle update part ##############
 		    #################################################
-		    proot-distro login --user "$final_user_name" "$selected_distro" --shared-tmp --termux-home -- env DISPLAY=:"$display_number" sudo dnf update
+		    proot-distro login --user "$final_user_name" "$selected_distro" --shared-tmp -- env DISPLAY=:"$display_number" sudo dnf update
 		}
 	TOP_EOF
 }
@@ -2272,7 +2272,7 @@ function install_distro_container() {
 	if [[ "$selected_distro_type" == "chroot" ]]; then
 		termux_home_link=" "
 	else
-		termux_home_link="--termux-home"
+		termux_home_link=" "
 	fi
 	distro_basic_task
 	if [[ "$CALL_FROM_CHANGE_DISTRO" == false ]]; then
