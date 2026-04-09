@@ -51,7 +51,7 @@ function setup_proot_distro() {
 	print_msg "${BOLD}Setting up ${C}proot-distro"
 	package_install_and_check "proot-distro sed which"
 
-	sed -i 's|:@TERMUX_PREFIX@/bin||g' $(which proot-distro)
+	sed -i 's|:/data/data/com.termux/files/usr/bin||g' $(which proot-distro)
 	banner
 	print_msg "${BOLD}Setting up Selected Linux Distro: ${C}${selected_distro}"
 	echo
